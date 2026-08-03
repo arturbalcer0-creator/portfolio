@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function ProblemCard({
   bg,
   z,
@@ -51,7 +52,7 @@ export function Problems() {
         num="Проблема №1"
         title="Бизнес"
         text="Действовавший на тот момент контрол показывал не максимально возможные ресурсы, которые облако может предоставить в принципе, а только доступные «здесь и сейчас» (после вычета уже занятых мощностей). Из-за этого у клиента складывалось впечатление, что выбор конфигураций у нас сильно ограничен, хотя на деле это было не так."
-        img="/assets/problem1-control.png"
+        img={asset('/assets/problem1-control.png')}
       />
       <div className="h-[100svh]" aria-hidden />
       <ProblemCard
@@ -60,7 +61,7 @@ export function Problems() {
         num="Проблема №2"
         title="Пользователь"
         text="Старый контрол не показывал, какие сочетания CPU и RAM вообще доступны. Пользователь мог решить, что можно ввести произвольное значение в поле CPU и в поле RAM — а по факту так сделать было нельзя."
-        img="/assets/problem2-control.png"
+        img={asset('/assets/problem2-control.png')}
       />
       <div className="h-[100svh]" aria-hidden />
     </section>

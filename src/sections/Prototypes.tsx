@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function ProtoCard({ img, caption }: { img: string; caption: string }) {
   return (
     <div className="flex w-full flex-col items-center overflow-hidden rounded-[var(--radius-xl)] bg-[var(--black-04)] p-[8px]">
@@ -28,20 +29,20 @@ export function Prototypes() {
       <div className="flex w-full max-w-content flex-col items-center gap-[12px]">
         <div className="flex w-full flex-col gap-[12px] lg:flex-row">
           <div className="flex flex-1">
-            <ProtoCard img="/assets/proto-cards.png" caption="«Карточки» — самый распространённый вариант" />
+            <ProtoCard img={asset('/assets/proto-cards.png')} caption="«Карточки» — самый распространённый вариант" />
           </div>
           <div className="flex flex-1">
-            <ProtoCard img="/assets/proto-chips.png" caption="«Чипсы» — альтернатива карточкам" />
+            <ProtoCard img={asset('/assets/proto-chips.png')} caption="«Чипсы» — альтернатива карточкам" />
           </div>
         </div>
         <div className="w-full lg:w-[534px]">
-          <ProtoCard img="/assets/proto-current.png" caption="Текущий вариант" />
+          <ProtoCard img={asset('/assets/proto-current.png')} caption="Текущий вариант" />
         </div>
       </div>
 
       <div className="flex w-full max-w-content flex-col items-center gap-[2px]">
         <img
-          src="/assets/proto-drafts.png"
+          src={asset('/assets/proto-drafts.png')}
           alt="Страница с драфтами прототипов"
           className="w-full rounded-[var(--radius-lg)]"
         />

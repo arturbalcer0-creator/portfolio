@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function Shot({ src, ratio }: { src: string; ratio: string }) {
   return <img src={src} alt="" className="w-full rounded-[var(--radius-sm)]" style={{ aspectRatio: ratio }} />
 }
@@ -14,12 +15,12 @@ export function SearchSolutions() {
           {/* Competitor grid — single column in reading order on mobile, two columns on desktop */}
           <div className="flex shrink-0 flex-col gap-[4px] lg:flex-row">
             <div className="flex flex-col gap-[4px] lg:w-[306px]">
-              <Shot src="/assets/comp-1.png" ratio="306 / 131" />
-              <Shot src="/assets/comp-2.png" ratio="306 / 289" />
+              <Shot src={asset('/assets/comp-1.png')} ratio="306 / 131" />
+              <Shot src={asset('/assets/comp-2.png')} ratio="306 / 289" />
             </div>
             <div className="flex flex-col gap-[4px] lg:w-[306px]">
-              <Shot src="/assets/comp-3.png" ratio="306 / 181" />
-              <Shot src="/assets/comp-4.png" ratio="306 / 240" />
+              <Shot src={asset('/assets/comp-3.png')} ratio="306 / 181" />
+              <Shot src={asset('/assets/comp-4.png')} ratio="306 / 240" />
             </div>
           </div>
 

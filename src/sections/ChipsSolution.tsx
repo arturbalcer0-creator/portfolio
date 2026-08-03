@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 export function ChipsSolution() {
   return (
     <section id="chips" className="flex w-full items-center justify-center p-[16px] lg:p-[30px]">
@@ -9,7 +10,7 @@ export function ChipsSolution() {
             style={{ aspectRatio: '372 / 657' }}
           >
             <img
-              src="/assets/ozon-raw.png"
+              src={asset('/assets/ozon-raw.png')}
               alt="Чипсы — фильтры в мобильном приложении"
               className="absolute left-[0.13%] top-[-7.4%] w-full"
               style={{ height: '122.96%' }}

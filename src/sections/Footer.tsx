@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 const cases = [
   { title: 'Кейс SSH-ключей', href: '#' },
   { title: 'О себе', href: '#' },
@@ -15,7 +16,7 @@ function CaseCard({ title, href }: { title: string; href: string }) {
       className="flex h-[369px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-[var(--white-12)] p-[8px] transition-opacity hover:opacity-90 lg:flex-1"
     >
       <div className="relative min-h-px flex-1 overflow-hidden rounded-[24px] bg-[var(--black)]">
-        <img src="/assets/arrow-out.svg" alt="" className="absolute right-[8px] top-[8px] size-[40px]" />
+        <img src={asset('/assets/arrow-out.svg')} alt="" className="absolute right-[8px] top-[8px] size-[40px]" />
       </div>
       <div className="px-[20px] py-[8px]">
         <p className="text-[24px] font-medium leading-[1.4] tracking-[-0.03em] text-[color:var(--white)]">
@@ -32,7 +33,7 @@ export function Footer() {
       <div className="mx-auto flex w-full max-w-content flex-col gap-[130px]">
         {/* На главную */}
         <a href="/" className="flex w-fit items-center gap-[12px]">
-          <img src="/assets/arrow-left.svg" alt="" className="h-[21px] w-[59px]" />
+          <img src={asset('/assets/arrow-left.svg')} alt="" className="h-[21px] w-[59px]" />
           <span className="t-body-tight tracking-[-0.03em] text-[color:var(--white)]">На главную</span>
         </a>
 

@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function Dot() {
   return <div className="size-[4px] rounded-[var(--radius-md)] bg-[var(--white-24)]" />
 }
@@ -7,7 +8,7 @@ function Meta({ size }: { size: 'lg' | 'sm' }) {
   return (
     <div className="flex w-full flex-wrap items-center justify-center gap-[8px]">
       <div className="flex items-center gap-[4px]">
-        <img src="/assets/cloud-logo.svg" alt="Cloud.ru" className="size-[24px]" />
+        <img src={asset('/assets/cloud-logo.svg')} alt="Cloud.ru" className="size-[24px]" />
         <span className={`${text} whitespace-nowrap font-medium text-[color:var(--green-400)]`}>
           Cloud.ru
         </span>
@@ -29,7 +30,7 @@ function Cover({ className }: { className: string }) {
   return (
     <div className={`relative overflow-hidden rounded-[var(--radius-avatar)] ${className}`}>
       <img
-        src="/assets/hero-cover.png"
+        src={asset('/assets/hero-cover.png')}
         alt=""
         className="pointer-events-none absolute max-w-none"
         style={{ height: '194.12%', width: '213.99%', left: '-3.07%', top: '-42.41%' }}

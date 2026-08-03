@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function Def({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-[2px]">
@@ -98,10 +99,10 @@ export function Context() {
           {/* Process */}
           <div className="flex flex-col gap-[12px]">
             <div className="flex flex-col gap-[12px] lg:flex-row">
-              <TermCard img="/assets/proc-vcpu.png" title="vCPU" desc="Виртуальный аналог процессора в ВМ" />
-              <TermCard img="/assets/proc-ram.png" title="RAM" desc="Оперативная память. Аналог RAM в компьютере" />
+              <TermCard img={asset('/assets/proc-vcpu.png')} title="vCPU" desc="Виртуальный аналог процессора в ВМ" />
+              <TermCard img={asset('/assets/proc-ram.png')} title="RAM" desc="Оперативная память. Аналог RAM в компьютере" />
               <TermCard
-                img="/assets/proc-flavour.png"
+                img={asset('/assets/proc-flavour.png')}
                 title="Flavour"
                 desc="Заранее подготовленное сочетание vCPU и RAM"
               />

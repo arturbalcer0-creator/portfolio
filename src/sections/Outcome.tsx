@@ -1,3 +1,4 @@
+import { asset } from '../lib/asset'
 function MetricBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="flex w-full flex-col gap-[12px]">
@@ -27,7 +28,7 @@ export function Outcome() {
               className="flex w-full items-center overflow-hidden rounded-[var(--radius-media)] bg-[var(--white)]"
               style={{ aspectRatio: '520 / 320' }}
             >
-              <img src="/assets/result-chips.png" alt="Финальный вариант — «Чипсы»" className="w-full" />
+              <img src={asset('/assets/result-chips.png')} alt="Финальный вариант — «Чипсы»" className="w-full" />
             </div>
             <p className="t-body mt-[20px] text-center">В конечном итоге был выбран вариант «Чипсы»</p>
           </div>
