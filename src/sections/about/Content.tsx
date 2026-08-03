@@ -1,4 +1,5 @@
 import { asset } from '../../lib/asset'
+import { ContactPills } from '../../components/ContactPills'
 
 const experience = [
   { icon: null, name: 'Фриланс', period: '2020 — 2022г' },
@@ -108,33 +109,36 @@ export function AboutContent() {
     <section className="flex w-full flex-col items-center px-[16px] py-[80px] lg:px-[30px] lg:py-[160px]">
       <div className="flex w-full max-w-content flex-col gap-[64px] lg:gap-[92px]">
         {/* Intro */}
-        <div className="flex flex-col gap-[8px]">
-          {/* Desktop: matches Figma's exact line breaks */}
-          <p className="hidden text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)] lg:block">
-            Привет! Меня зовут Артур, <br />
-            я продуктовый дизайнер <br />
-            и на данный момент работаю
-          </p>
-          <div className="hidden items-center gap-[24px] lg:flex">
-            <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)]">
-              в
+        <div className="flex flex-col gap-[24px]">
+          <div className="flex flex-col gap-[8px]">
+            {/* Desktop: matches Figma's exact line breaks */}
+            <p className="hidden text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)] lg:block">
+              Привет! Меня зовут Артур, <br />
+              я продуктовый дизайнер <br />
+              и на данный момент работаю
             </p>
-            <div className="flex items-center gap-[12px]">
-              <img src={asset('/assets/cloud-logo.svg')} alt="" className="size-[83px]" />
-              <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[#21c072]">
-                Cloud.ru
+            <div className="hidden items-center gap-[24px] lg:flex">
+              <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)]">
+                в
               </p>
+              <div className="flex items-center gap-[12px]">
+                <img src={asset('/assets/cloud-logo.svg')} alt="" className="size-[83px]" />
+                <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[#21c072]">
+                  Cloud.ru
+                </p>
+              </div>
             </div>
-          </div>
 
-          {/* Mobile: natural wrap */}
-          <p className="text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-[color:var(--ink)] lg:hidden">
-            Привет! Меня зовут Артур, я продуктовый дизайнер и на данный момент работаю в{' '}
-            <span className="inline-flex items-center gap-[6px]">
-              <img src={asset('/assets/cloud-logo.svg')} alt="" className="inline-block size-[28px]" />
-              <span className="text-[#21c072]">Cloud.ru</span>
-            </span>
-          </p>
+            {/* Mobile: natural wrap */}
+            <p className="text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-[color:var(--ink)] lg:hidden">
+              Привет! Меня зовут Артур, я продуктовый дизайнер и на данный момент работаю в{' '}
+              <span className="inline-flex items-center gap-[6px]">
+                <img src={asset('/assets/cloud-logo.svg')} alt="" className="inline-block size-[28px]" />
+                <span className="text-[#21c072]">Cloud.ru</span>
+              </span>
+            </p>
+          </div>
+          <ContactPills className="flex flex-row flex-wrap items-start gap-[8px]" />
         </div>
 
         {/* Опыт */}

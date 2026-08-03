@@ -54,7 +54,9 @@ function CaseCard({
 }) {
   const card = (
     <div className="flex h-[369px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-[var(--black-04)] p-[8px]">
-      <div className="relative min-h-px flex-1 overflow-hidden rounded-[24px] bg-[var(--white)]">
+      <div
+        className={`relative min-h-px flex-1 overflow-hidden rounded-[24px] bg-[var(--white)] ${ready ? 'transition-colors duration-200 group-hover:bg-[var(--black-04)]' : ''}`}
+      >
         {illustration}
 
         <div className="absolute left-[8px] top-[8px] flex size-[40px] items-center justify-center overflow-hidden rounded-[var(--radius-full)] bg-[var(--black-04)]">
@@ -85,7 +87,7 @@ function CaseCard({
   )
 
   return ready ? (
-    <a href={href} className="block w-full transition-opacity hover:opacity-90 lg:flex-1">
+    <a href={href} className="group block w-full lg:flex-1">
       {card}
     </a>
   ) : (
@@ -130,7 +132,7 @@ const cases = [
     {
       title: 'Контейнерная безопасность',
       ready: false,
-      badgeIcon: rtLogo,
+      badgeIcon: cloudLogo,
       badgeLabel: 'to be done',
       illustration: (
         <MockupIllustration

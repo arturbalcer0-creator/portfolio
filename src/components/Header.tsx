@@ -33,7 +33,16 @@ export function Header() {
     const onScroll = () => {
       const y = window.scrollY
       const delta = y - lastY
-      if (y < 10 || delta < -4) setPillsVisible(true)
+
+      // The footer is a full-height block now — force the pills back on once the user
+      // has scrolled halfway through it, since hide-on-scroll-down would otherwise strand
+      // them with no way to reach "Меню"/"В начало" deep inside it.
+      const footer = document.querySelector('footer')
+      const scrolledIntoFooter = footer ? -footer.getBoundingClientRect().top : -Infinity
+      const pastFooterHalfway =
+        !!footer && scrolledIntoFooter > 0 && scrolledIntoFooter / footer.getBoundingClientRect().height >= 0.5
+
+      if (pastFooterHalfway || y < 10 || delta < -4) setPillsVisible(true)
       else if (delta > 4) setPillsVisible(false)
       lastY = y
     }
