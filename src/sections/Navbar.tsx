@@ -10,7 +10,7 @@ export function Navbar() {
         <a
           key={t}
           href="#"
-          className="t-body-20-tight flex h-full items-center px-[24px] text-[color:var(--black-50)] transition-colors hover:text-[color:var(--black-80)]"
+          className="t-body-tight flex h-full items-center px-[24px] text-[color:var(--black-50)] transition-colors hover:text-[color:var(--black-80)]"
         >
           {t}
         </a>

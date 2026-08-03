@@ -37,7 +37,7 @@ export default function App() {
   }, [])
 
   return (
-    <div className="relative w-full overflow-x-clip">
+    <div className="relative w-full overflow-x-clip bg-[var(--white)]">
       <Navbar />
       <TableOfContents />
       <main className="w-full">

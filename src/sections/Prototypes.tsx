@@ -8,7 +8,7 @@ function ProtoCard({ img, caption }: { img: string; caption: string }) {
         <img src={img} alt="" className="w-full" />
       </div>
       <div className="flex w-full flex-col p-[20px]">
-        <p className="t-body-20 text-center text-[color:var(--ink-80)]">{caption}</p>
+        <p className="t-body text-center text-[color:var(--ink-80)]">{caption}</p>
       </div>
     </div>
   )
@@ -20,7 +20,7 @@ export function Prototypes() {
       id="prototypes"
       className="flex w-full flex-col items-center gap-[32px] px-[16px] pb-[80px] pt-[80px] lg:px-[30px] lg:pb-[160px] lg:pt-[120px]"
     >
-      <p className="t-body-20 max-w-[440px] text-center text-[color:var(--ink-80)]">
+      <p className="t-body max-w-[440px] text-center text-[color:var(--ink-80)]">
         Результатом поиска решений стали 3 кликабельных прототипа, с которыми я пошёл на немодерируемое
         юзабилити тестирование.
       </p>

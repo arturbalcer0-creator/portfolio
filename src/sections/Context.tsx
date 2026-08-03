@@ -1,8 +1,8 @@
 function Def({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-[2px]">
-      <p className="t-body-20 text-[color:var(--ink-40)]">{label}</p>
-      <p className="t-body-20 text-[color:var(--ink-80)]">{value}</p>
+      <p className="t-body text-[color:var(--ink-40)]">{label}</p>
+      <p className="t-body text-[color:var(--ink-80)]">{value}</p>
     </div>
   )
 }
@@ -10,8 +10,8 @@ function Def({ label, value }: { label: string; value: string }) {
 function DefList({ label, items }: { label: string; items: string[] }) {
   return (
     <div className="flex flex-col gap-[2px]">
-      <p className="t-body-20 text-[color:var(--ink-40)]">{label}</p>
-      <ul className="t-body-20 list-disc pl-[30px] text-[color:var(--ink-80)]">
+      <p className="t-body text-[color:var(--ink-40)]">{label}</p>
+      <ul className="t-body list-disc pl-[30px] text-[color:var(--ink-80)]">
         {items.map((it) => (
           <li key={it}>{it}</li>
         ))}
@@ -26,7 +26,7 @@ function TermCard({ img, title, desc }: { img: string; title: string; desc: stri
       <img src={img} alt="" className="w-full rounded-[var(--radius-media)]" style={{ aspectRatio: '672 / 382' }} />
       <div className="flex w-full flex-col gap-[8px] p-[20px]">
         <p className="t-heading-24 text-[color:var(--black)]">{title}</p>
-        <p className="t-body-20 text-[color:var(--ink-80)]">{desc}</p>
+        <p className="t-body text-[color:var(--ink-80)]">{desc}</p>
       </div>
     </div>
   )
@@ -86,8 +86,8 @@ export function Context() {
 
           {/* Description */}
           <div className="flex flex-col gap-[2px]">
-            <p className="t-body-20 text-[color:var(--ink-40)]">Описание</p>
-            <p className="t-body-20 text-[color:var(--ink-80)]">
+            <p className="t-body text-[color:var(--ink-40)]">Описание</p>
+            <p className="t-body text-[color:var(--ink-80)]">
               У каждой <span className="text-[color:var(--green-700)]">виртуальной машины</span> (дальше
               ВМ), как и у обычного компьютера, есть процессор и оперативная память. Чтобы настроить
               виртуальный сервер, пользователь выбирает конфигурацию — конкретное сочетание CPU и RAM из

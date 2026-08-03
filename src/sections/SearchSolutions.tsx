@@ -25,11 +25,11 @@ export function SearchSolutions() {
 
           {/* Copy */}
           <div className="flex flex-1 flex-col">
-            <p className="t-body-20 text-[color:var(--ink-80)]">
+            <p className="t-body text-[color:var(--ink-80)]">
               После анализа бизнесовых и пользовательских проблем я пошёл изучать аналогичные решения
               конкурентов (показал только РФ, зарубежные выглядят слишком экстравагантно).
             </p>
-            <p className="t-body-20 text-[color:var(--ink-80)]">
+            <p className="t-body text-[color:var(--ink-80)]">
               Все решения — <span className="text-[color:var(--green-700)]">карточки флейвора</span>. Оно
               красивое, но когда флейворов ±100-150, карточки становятся нечитаемыми.
             </p>

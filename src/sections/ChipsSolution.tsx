@@ -17,11 +17,11 @@ export function ChipsSolution() {
           </div>
 
           <div className="flex flex-col gap-[16px] lg:w-[443px]">
-            <p className="t-body-20 text-[color:var(--white)]">
+            <p className="t-body text-[color:var(--white)]">
               Альтернативным вариантом карточек стали «чипсы». На них я наткнулся в Озоне, когда ресёрчил
               решения в смежных сервисах.
             </p>
-            <p className="t-body-20 text-[color:var(--white)]">
+            <p className="t-body text-[color:var(--white)]">
               Чипсы мне показались хорошей альтернативой, так как можно было бы заложить в них нужный мне
               функционал и решить все проблемы, с которыми ко мне пришли.
             </p>

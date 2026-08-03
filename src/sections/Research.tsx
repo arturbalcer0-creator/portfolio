@@ -4,7 +4,7 @@ function StageCard({ n, title, desc }: { n: string; title: string; desc: string 
       <p className="t-heading-44 text-[color:var(--black-40)]">{n}</p>
       <div className="flex flex-col gap-[12px] text-[color:var(--black-80)]">
         <p className="t-heading-32">{title}</p>
-        <p className="t-body-20-tight">{desc}</p>
+        <p className="t-body-tight">{desc}</p>
       </div>
     </div>
   )

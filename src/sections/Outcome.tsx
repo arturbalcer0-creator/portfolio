@@ -2,7 +2,7 @@ function MetricBlock({ title, items }: { title: string; items: string[] }) {
   return (
     <div className="flex w-full flex-col gap-[12px]">
       <p className="t-heading-24">{title}</p>
-      <ul className="t-body-20 list-disc pl-[30px]">
+      <ul className="t-body list-disc pl-[30px]">
         {items.map((it) => (
           <li key={it}>{it}</li>
         ))}
@@ -29,7 +29,7 @@ export function Outcome() {
             >
               <img src="/assets/result-chips.png" alt="Финальный вариант — «Чипсы»" className="w-full" />
             </div>
-            <p className="t-body-20 mt-[20px] text-center">В конечном итоге был выбран вариант «Чипсы»</p>
+            <p className="t-body mt-[20px] text-center">В конечном итоге был выбран вариант «Чипсы»</p>
           </div>
 
           {/* Metrics */}

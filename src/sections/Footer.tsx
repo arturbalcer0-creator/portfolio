@@ -33,12 +33,12 @@ export function Footer() {
         {/* На главную */}
         <a href="/" className="flex w-fit items-center gap-[12px]">
           <img src="/assets/arrow-left.svg" alt="" className="h-[21px] w-[59px]" />
-          <span className="t-body-20-tight tracking-[-0.03em] text-[color:var(--white)]">На главную</span>
+          <span className="t-body-tight tracking-[-0.03em] text-[color:var(--white)]">На главную</span>
         </a>
 
         {/* Можно ещё посмотреть */}
         <div className="flex flex-col gap-[12px] lg:flex-row lg:items-start">
-          <p className="t-body-20-tight tracking-[-0.03em] text-[color:var(--white)] lg:w-[352px] lg:shrink-0">
+          <p className="t-body-tight tracking-[-0.03em] text-[color:var(--white)] lg:w-[352px] lg:shrink-0">
             Можно ещё посмотреть
           </p>
           <div className="flex flex-1 flex-col gap-[12px] lg:flex-row">
@@ -50,7 +50,7 @@ export function Footer() {
 
         {/* Контакты */}
         <div className="flex flex-col gap-[12px] lg:flex-row lg:items-start">
-          <p className="t-body-20-tight tracking-[-0.03em] text-[color:var(--white)] lg:w-[352px] lg:shrink-0">
+          <p className="t-body-tight tracking-[-0.03em] text-[color:var(--white)] lg:w-[352px] lg:shrink-0">
             Контакты
           </p>
           <div className="flex flex-1 flex-col gap-[12px]">
@@ -58,7 +58,7 @@ export function Footer() {
               <a
                 key={c.label}
                 href={c.href}
-                className="t-body-20-tight w-fit text-[color:var(--green-400)] transition-opacity hover:opacity-80"
+                className="t-body-tight w-fit text-[color:var(--green-400)] transition-opacity hover:opacity-80"
               >
                 {c.label}
               </a>
