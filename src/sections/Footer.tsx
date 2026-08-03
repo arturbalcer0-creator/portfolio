@@ -22,9 +22,16 @@ function CaseCard({ title, href }: { title: string; href: string }) {
   )
 }
 
-/** Shared across both cases — `otherCase` is the one case card that differs (the other links back to this page). */
-export function Footer({ otherCase }: { otherCase: { title: string; href: string } }) {
-  const cases = [otherCase, { title: 'О себе', href: '#' }]
+/** Shared across all pages. Case pages pass `otherCase` (the other case card, paired with a link to "О себе").
+ *  The about page itself passes `cases` directly (both case studies, since "О себе" would just link to itself). */
+export function Footer({
+  otherCase,
+  cases: casesProp,
+}: {
+  otherCase?: { title: string; href: string }
+  cases?: { title: string; href: string }[]
+}) {
+  const cases = casesProp ?? [otherCase!, { title: 'О себе', href: '/about/' }]
 
   return (
     <footer className="w-full bg-[var(--black)] px-[16px] py-[24px] lg:px-[30px] lg:py-[65px]">
