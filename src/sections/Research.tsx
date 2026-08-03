@@ -1,6 +1,6 @@
 function StageCard({ n, title, desc }: { n: string; title: string; desc: string }) {
   return (
-    <div className="flex h-auto flex-1 flex-col gap-[48px] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--black-04)] px-[20px] pb-[24px] pt-[12px] lg:h-full lg:gap-[74px]">
+    <div className="flex h-auto flex-1 flex-col gap-[48px] overflow-hidden rounded-[var(--radius-xl)] bg-[var(--black-02)] px-[20px] pb-[24px] pt-[12px] lg:h-full lg:gap-[74px] lg:px-[32px] lg:pb-[32px] lg:pt-[24px]">
       <p className="t-heading-44 text-[color:var(--black-40)]">{n}</p>
       <div className="flex flex-col gap-[12px] text-[color:var(--black-80)]">
         <p className="t-heading-32">{title}</p>
@@ -37,7 +37,7 @@ export function Research() {
   return (
     <section
       id="research"
-      className="flex w-full flex-col items-center gap-[64px] px-[16px] pb-[80px] pt-[80px] lg:px-[30px] lg:pb-[160px]"
+      className="flex w-full flex-col items-center gap-[40px] px-[16px] pb-[80px] pt-[80px] lg:gap-[64px] lg:px-[30px] lg:pb-[160px]"
     >
       <h2 className="text-center text-[40px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)] lg:text-[64px]">
         Исследование и результаты

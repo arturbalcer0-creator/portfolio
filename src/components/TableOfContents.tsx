@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react'
 
-const sections = [
+export type TocSection = { id: string; label: string; dark: boolean }
+
+const defaultSections: TocSection[] = [
   { id: 'hero', label: 'Вычислительные ресурсы', dark: true },
   { id: 'context', label: 'Контекст', dark: false },
   { id: 'problems', label: 'Проблемы', dark: true },
@@ -12,8 +14,8 @@ const sections = [
   { id: 'outcome', label: 'Итоги', dark: true },
 ]
 
-export function TableOfContents() {
-  const [active, setActive] = useState('hero')
+export function TableOfContents({ sections = defaultSections }: { sections?: TocSection[] }) {
+  const [active, setActive] = useState(sections[0].id)
 
   useEffect(() => {
     const observer = new IntersectionObserver(

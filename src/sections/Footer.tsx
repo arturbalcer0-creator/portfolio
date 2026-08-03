@@ -1,9 +1,4 @@
 import { asset } from '../lib/asset'
-const cases = [
-  { title: 'Кейс SSH-ключей', href: '#' },
-  { title: 'О себе', href: '#' },
-]
-
 const contacts = [
   { label: 'Telegram', href: '#' },
   { label: 'Почта', href: '#' },
@@ -27,15 +22,34 @@ function CaseCard({ title, href }: { title: string; href: string }) {
   )
 }
 
-export function Footer() {
+/** Shared across both cases — `otherCase` is the one case card that differs (the other links back to this page). */
+export function Footer({ otherCase }: { otherCase: { title: string; href: string } }) {
+  const cases = [otherCase, { title: 'О себе', href: '#' }]
+
   return (
     <footer className="w-full bg-[var(--black)] px-[16px] py-[24px] lg:px-[30px] lg:py-[65px]">
-      <div className="mx-auto flex w-full max-w-content flex-col gap-[130px]">
-        {/* На главную */}
-        <a href="/" className="flex w-fit items-center gap-[12px]">
-          <img src={asset('/assets/arrow-left.svg')} alt="" className="h-[21px] w-[59px]" />
-          <span className="t-body-tight tracking-[-0.03em] text-[color:var(--white)]">На главную</span>
-        </a>
+      <div className="mx-auto flex w-full max-w-content flex-col gap-[24px] lg:gap-[130px]">
+        {/* На главную + контакты */}
+        <div className="flex flex-col gap-[24px] lg:flex-row lg:items-center lg:justify-between">
+          <a href="/" className="flex w-fit items-center gap-[12px]">
+            <img src={asset('/assets/arrow-left.svg')} alt="" className="h-[21px] w-[59px]" />
+            <span className="t-body-tight tracking-[-0.03em] text-[color:var(--white)]">На главную</span>
+          </a>
+          <div className="flex flex-wrap items-center gap-[24px]">
+            <span className="t-body-tight tracking-[-0.03em] text-[color:var(--white)]">
+              Связаться со мной:
+            </span>
+            {contacts.map((c) => (
+              <a
+                key={c.label}
+                href={c.href}
+                className="t-body-tight tracking-[-0.03em] text-[color:var(--green-400)] transition-opacity hover:opacity-80"
+              >
+                {c.label}
+              </a>
+            ))}
+          </div>
+        </div>
 
         {/* Можно ещё посмотреть */}
         <div className="flex flex-col gap-[12px] lg:flex-row lg:items-start">
@@ -45,24 +59,6 @@ export function Footer() {
           <div className="flex flex-1 flex-col gap-[12px] lg:flex-row">
             {cases.map((c) => (
               <CaseCard key={c.title} {...c} />
-            ))}
-          </div>
-        </div>
-
-        {/* Контакты */}
-        <div className="flex flex-col gap-[12px] lg:flex-row lg:items-start">
-          <p className="t-body-tight tracking-[-0.03em] text-[color:var(--white)] lg:w-[352px] lg:shrink-0">
-            Контакты
-          </p>
-          <div className="flex flex-1 flex-col gap-[12px]">
-            {contacts.map((c) => (
-              <a
-                key={c.label}
-                href={c.href}
-                className="t-body-tight w-fit text-[color:var(--green-400)] transition-opacity hover:opacity-80"
-              >
-                {c.label}
-              </a>
             ))}
           </div>
         </div>

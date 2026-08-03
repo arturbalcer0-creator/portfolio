@@ -1,4 +1,4 @@
-import { asset } from '../lib/asset'
+import { asset } from '../../lib/asset'
 function Def({ label, value }: { label: string; value: string }) {
   return (
     <div className="flex flex-col gap-[2px]">
@@ -8,23 +8,10 @@ function Def({ label, value }: { label: string; value: string }) {
   )
 }
 
-function DefList({ label, items }: { label: string; items: string[] }) {
-  return (
-    <div className="flex flex-col gap-[2px]">
-      <p className="t-body text-[color:var(--ink-40)]">{label}</p>
-      <ul className="t-body list-disc pl-[30px] text-[color:var(--ink-80)]">
-        {items.map((it) => (
-          <li key={it}>{it}</li>
-        ))}
-      </ul>
-    </div>
-  )
-}
-
-function TermCard({ img, title, desc }: { img: string; title: string; desc: string }) {
+function ProcessCard({ img, title, desc }: { img: string; title: string; desc: string }) {
   return (
     <div className="flex flex-1 flex-col items-center overflow-hidden rounded-[var(--radius-xl)] bg-[var(--black-04)] p-[8px]">
-      <img src={img} alt="" className="w-full rounded-[var(--radius-media)]" style={{ aspectRatio: '672 / 382' }} />
+      <img src={img} alt="" className="w-full rounded-[var(--radius-media)]" style={{ aspectRatio: '336 / 191' }} />
       <div className="flex w-full flex-col gap-[8px] p-[20px]">
         <p className="t-heading-24 text-[color:var(--black)]">{title}</p>
         <p className="t-body text-[color:var(--ink-80)]">{desc}</p>
@@ -51,14 +38,13 @@ function Step({ title, items, last }: { title: string; items: string[]; last?: b
 }
 
 const steps = [
-  { title: 'Изучение проблем', items: ['Общение с бизнесом', 'Общение с пользователями'] },
-  { title: 'Анализ конкурентов', items: ['Рынка РФ', 'Мировой рынок', 'Изучение решений в смежных сервисах'] },
-  { title: 'Исследование', items: ['Подготовка прототипов', 'Проведение u-теста', 'Анализ результатов'] },
+  { title: 'Изучение проблем', items: ['Общение с пользователями'] },
+  { title: 'Подготовка', items: ['Анализ конкурентов', 'Поиск решений'] },
   { title: 'Разработка', items: ['Подготовка и передача макетов в прод'] },
   { title: 'Метрики', items: ['Изучение метрик после выхода в прод'] },
 ]
 
-export function Context() {
+export function SshContext() {
   return (
     <section id="context" className="flex w-full flex-col items-center px-[16px] py-[80px] lg:px-[30px] lg:py-[160px]">
       <div className="flex w-full max-w-content flex-col gap-[40px] lg:gap-[64px]">
@@ -71,12 +57,9 @@ export function Context() {
           <div className="flex flex-col gap-[12px] lg:flex-row">
             <div className="flex flex-1 flex-col gap-[12px]">
               <Def label="Роль" value="Продуктовый дизайнер" />
-              <DefList
+              <Def
                 label="Цель"
-                items={[
-                  'Ускорить выбор вычислительных ресурсов',
-                  'Сделать выбор вычислительных ресурсов понятнее',
-                ]}
+                value="Сократить количество обращений в поддержку с вопросами/проблемами, связанными с SSH-ключом"
               />
             </div>
             <div className="flex flex-1 flex-col gap-[12px]">
@@ -89,22 +72,30 @@ export function Context() {
           <div className="flex flex-col gap-[2px]">
             <p className="t-body text-[color:var(--ink-40)]">Описание</p>
             <p className="t-body text-[color:var(--ink-80)]">
-              У каждой <span className="text-[color:var(--green-700)]">виртуальной машины</span> (дальше
-              ВМ), как и у обычного компьютера, есть процессор и оперативная память. Чтобы настроить
-              виртуальный сервер, пользователь выбирает конфигурацию — конкретное сочетание CPU и RAM из
-              заранее подготовленного набора вариантов флейворов.
+              SSH-ключ — это пара цифровых «ключей» для безопасного доступа к серверу или виртуальной
+              машине: приватная часть остаётся у пользователя на компьютере, публичная — хранится на
+              сервере. Раньше в продукте пользователю нужно было создать эту пару самостоятельно и вручную
+              загрузить публичную часть в систему.
             </p>
           </div>
 
           {/* Process */}
           <div className="flex flex-col gap-[12px]">
             <div className="flex flex-col gap-[12px] lg:flex-row">
-              <TermCard img={asset('/assets/proc-vcpu.png')} title="vCPU" desc="Виртуальный аналог процессора в ВМ" />
-              <TermCard img={asset('/assets/proc-ram.png')} title="RAM" desc="Оперативная память. Аналог RAM в компьютере" />
-              <TermCard
-                img={asset('/assets/proc-flavour.png')}
-                title="Flavour"
-                desc="Заранее подготовленное сочетание vCPU и RAM"
+              <ProcessCard
+                img={asset('/assets/ssh-proc-key.png')}
+                title="SSH-ключ"
+                desc="Ключевая пара «Публичный ключ» + «Приватный ключ»"
+              />
+              <ProcessCard
+                img={asset('/assets/ssh-proc-public.png')}
+                title="Публичный ключ"
+                desc="Часть, которая хранится на нашей стороне"
+              />
+              <ProcessCard
+                img={asset('/assets/ssh-proc-private.png')}
+                title="Приватный ключ"
+                desc="Часть, которая должна храниться у пользователя"
               />
             </div>
 

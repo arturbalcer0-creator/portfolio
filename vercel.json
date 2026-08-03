@@ -2,5 +2,8 @@
   "outputDirectory": "dist",
   "redirects": [
     { "source": "/", "destination": "/flavour-case/", "permanent": false }
+  ],
+  "rewrites": [
+    { "source": "/(.*)", "destination": "/index.html" }
   ]
 }
