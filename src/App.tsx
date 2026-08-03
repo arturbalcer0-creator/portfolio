@@ -8,6 +8,7 @@ import { Prototypes } from './sections/Prototypes'
 import { Research } from './sections/Research'
 import { Insights } from './sections/Insights'
 import { Outcome } from './sections/Outcome'
+import { Footer } from './sections/Footer'
 import { TableOfContents } from './components/TableOfContents'
 
 export default function App() {
@@ -26,6 +27,7 @@ export default function App() {
         <Insights />
         <Outcome />
       </main>
+      <Footer />
     </div>
   )
 }

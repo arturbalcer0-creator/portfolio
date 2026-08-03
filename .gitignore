@@ -6,3 +6,4 @@ dist/
 # aider
 .aider*
 !.aider.conf.yml
+.vercel
