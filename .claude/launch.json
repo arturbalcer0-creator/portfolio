@@ -4,8 +4,8 @@
     {
       "name": "vm-case",
       "runtimeExecutable": "/Users/user/.local/node/bin/node",
-      "runtimeArgs": ["node_modules/vite/bin/vite.js"],
-      "port": 5173
+      "runtimeArgs": ["node_modules/vite/bin/vite.js", "--port", "5190", "--strictPort"],
+      "port": 5190
     }
   ]
 }

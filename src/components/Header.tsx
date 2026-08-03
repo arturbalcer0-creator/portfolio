@@ -5,7 +5,7 @@ const menuItems = [
   { label: 'Главная', href: '/' },
   { label: 'Вычислительные ресурсы', href: '/flavour-case/' },
   { label: 'SSH-ключ', href: '/ssh-key-case/' },
-  { label: 'О себе', href: '#' },
+  { label: 'О себе', href: '/about/' },
 ]
 
 function PillButton({
