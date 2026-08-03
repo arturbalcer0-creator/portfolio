@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { smoothScrollTo } from '../lib/scroll'
 
 export type TocSection = { id: string; label: string; dark: boolean }
 
@@ -33,7 +34,11 @@ export function TableOfContents({ sections = defaultSections }: { sections?: Toc
     return () => observer.disconnect()
   }, [])
 
-  const go = (id: string) => document.getElementById(id)?.scrollIntoView({ behavior: 'smooth', block: 'start' })
+  const go = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 32)
+  }
 
   // Colour the bars to contrast with the section currently behind the (vertically centered) nav.
   const activeDark = sections.find((s) => s.id === active)?.dark ?? false
