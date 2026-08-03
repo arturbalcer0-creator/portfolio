@@ -19,7 +19,7 @@ export function Outcome() {
       className="flex w-full items-center justify-center p-[16px] lg:p-[30px]"
     >
       <div className="flex w-full justify-center rounded-[var(--radius-lg)] bg-[var(--green-700)] px-[16px] py-[48px] lg:rounded-[var(--radius-2xl)] lg:px-[60px] lg:py-[80px]">
-        <div className="flex w-full max-w-content flex-col gap-[32px] text-[color:var(--white)] lg:grid lg:grid-cols-2 lg:gap-x-[39px] lg:gap-y-[46px]">
+        <div className="flex w-full max-w-content flex-col gap-[40px] text-[color:var(--white)] lg:grid lg:grid-cols-2 lg:gap-x-[39px] lg:gap-y-[46px]">
           <h2 className="t-display-64 lg:col-start-1 lg:row-start-1">Итоги</h2>
 
           {/* Result */}

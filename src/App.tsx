@@ -51,7 +51,7 @@ export default function App() {
         <Insights />
         <Outcome />
       </main>
-      <Footer />
+      <Footer otherCase={{ title: 'Кейс SSH-ключей', href: '/ssh-key-case/' }} />
     </div>
   )
 }

@@ -6,7 +6,7 @@ function Shot({ src, ratio }: { src: string; ratio: string }) {
 export function SearchSolutions() {
   return (
     <section id="search" className="flex w-full flex-col items-center px-[16px] py-[80px] lg:px-[30px] lg:py-[160px]">
-      <div className="flex w-full max-w-content flex-col gap-[64px]">
+      <div className="flex w-full max-w-content flex-col gap-[40px] lg:gap-[64px]">
         <h2 className="text-[40px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)] lg:text-[64px]">
           Поиск решений
         </h2>
