@@ -1,0 +1,7 @@
+# aider defaults for this project.
+# DeepSeek does the drafting; Claude reviews the git diff and fixes/instructs.
+model: deepseek/deepseek-chat
+# Keep aider's edits in the working tree so changes can be reviewed before committing.
+auto-commits: false
+# Don't let aider add its own dotfiles to .gitignore (managed manually below).
+gitignore: false

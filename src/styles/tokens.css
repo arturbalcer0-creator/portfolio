@@ -1,0 +1,72 @@
+/* Design tokens — mirrored 1:1 from the Figma "Кейс" variables.
+   Single source of truth for the frontend. */
+:root {
+  /* Brand */
+  --green-500: #26d07c;
+  --green-700: #00995a;
+  --green-400: #39ffad;
+  --green-neon: #00ff66;
+  --green-neon-40: rgba(0, 255, 102, 0.4);
+
+  /* Neutral */
+  --white: #ffffff;
+  --black: #000000;
+  --ink: #242424;
+
+  /* White alpha */
+  --white-80: rgba(255, 255, 255, 0.8);
+  --white-50: rgba(255, 255, 255, 0.5);
+  --white-30: rgba(255, 255, 255, 0.3);
+  --white-24: rgba(255, 255, 255, 0.24);
+  --white-12: rgba(255, 255, 255, 0.12);
+
+  /* Black alpha */
+  --black-80: rgba(0, 0, 0, 0.8);
+  --black-50: rgba(0, 0, 0, 0.5);
+  --black-40: rgba(0, 0, 0, 0.4);
+  --black-30: rgba(0, 0, 0, 0.3);
+  --black-20: rgba(0, 0, 0, 0.2);
+  --black-04: rgba(0, 0, 0, 0.04);
+
+  /* Ink alpha */
+  --ink-80: rgba(36, 36, 36, 0.8);
+  --ink-40: rgba(36, 36, 36, 0.4);
+
+  /* Radius */
+  --radius-sm: 12px;
+  --radius-md: 20px;
+  --radius-lg: 32px;
+  --radius-media: 36px;
+  --radius-xl: 44px;
+  --radius-avatar: 51px;
+  --radius-2xl: 64px;
+  --radius-full: 200px;
+
+  /* Spacing */
+  --space-2: 2px;
+  --space-4: 4px;
+  --space-8: 8px;
+  --space-10: 10px;
+  --space-12: 12px;
+  --space-16: 16px;
+  --space-20: 20px;
+  --space-24: 24px;
+  --space-32: 32px;
+  --space-64: 64px;
+}
+
+/* Typography scale — Inter (500 = Medium, 600 = Semi Bold).
+   "auto" line-height maps to normal; body copy uses 140%. */
+.t-display-64 { font-weight: 600; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; }
+.t-heading-44 { font-weight: 600; font-size: 44px; line-height: 1.1; }
+.t-heading-32 { font-weight: 600; font-size: 32px; line-height: 1.15; }
+.t-heading-24 { font-weight: 600; font-size: 24px; line-height: 1.2; }
+.t-heading-18 { font-weight: 600; font-size: 18px; line-height: 1.2; }
+.t-title-64   { font-weight: 500; font-size: 64px; line-height: 1.1; letter-spacing: -0.01em; }
+.t-body-20    { font-weight: 500; font-size: 20px; line-height: 1.4; }
+.t-body-20-tight { font-weight: 500; font-size: 20px; line-height: 1.2; }
+.t-label-16   { font-weight: 500; font-size: 16px; line-height: 1.2; }
+.t-caption-14 { font-weight: 500; font-size: 14px; line-height: 1.2; }
+.t-caption-14-relaxed { font-weight: 500; font-size: 14px; line-height: 1.4; }
+.t-caption-12 { font-weight: 500; font-size: 12px; line-height: 1.4; }
+.t-micro-10   { font-weight: 500; font-size: 10px; line-height: 1.4; }
