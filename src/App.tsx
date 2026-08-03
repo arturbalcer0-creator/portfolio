@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { nbsp } from './lib/typo'
-import { Navbar } from './sections/Navbar'
+import { Header } from './components/Header'
 import { Hero } from './sections/Hero'
 import { Context } from './sections/Context'
 import { Problems } from './sections/Problems'
@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     <div className="relative w-full overflow-x-clip bg-[var(--white)]">
-      <Navbar />
+      <Header />
       <TableOfContents />
       <main className="w-full">
         <Hero />

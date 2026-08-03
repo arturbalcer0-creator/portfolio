@@ -1,6 +1,6 @@
 import { useEffect } from 'react'
 import { nbsp } from './lib/typo'
-import { Navbar } from './sections/Navbar'
+import { Header } from './components/Header'
 import { Footer } from './sections/Footer'
 import { TableOfContents, type TocSection } from './components/TableOfContents'
 import { SshHero } from './sections/ssh-key/Hero'
@@ -43,7 +43,7 @@ export function SshKeyApp() {
 
   return (
     <div className="relative w-full overflow-x-clip bg-[var(--white)]">
-      <Navbar />
+      <Header />
       <TableOfContents sections={sections} />
       <main className="w-full">
         <SshHero />
