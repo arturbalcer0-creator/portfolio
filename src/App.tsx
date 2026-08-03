@@ -1,3 +1,5 @@
+import { useEffect } from 'react'
+import { nbsp } from './lib/typo'
 import { Navbar } from './sections/Navbar'
 import { Hero } from './sections/Hero'
 import { Context } from './sections/Context'
@@ -12,8 +14,30 @@ import { Footer } from './sections/Footer'
 import { TableOfContents } from './components/TableOfContents'
 
 export default function App() {
+  // Kill hanging prepositions site-wide: once the (static) content is mounted,
+  // bind short prepositions/conjunctions to the next word with a non-breaking space.
+  useEffect(() => {
+    const walker = document.createTreeWalker(document.body, NodeFilter.SHOW_TEXT, {
+      acceptNode(node) {
+        const tag = node.parentElement?.tagName
+        if (tag === 'SCRIPT' || tag === 'STYLE' || tag === 'NOSCRIPT') {
+          return NodeFilter.FILTER_REJECT
+        }
+        return node.nodeValue && /\S/.test(node.nodeValue)
+          ? NodeFilter.FILTER_ACCEPT
+          : NodeFilter.FILTER_REJECT
+      },
+    })
+    const nodes: Text[] = []
+    while (walker.nextNode()) nodes.push(walker.currentNode as Text)
+    for (const n of nodes) {
+      const next = nbsp(n.nodeValue as string)
+      if (next !== n.nodeValue) n.nodeValue = next
+    }
+  }, [])
+
   return (
-    <div className="relative w-full overflow-x-hidden">
+    <div className="relative w-full overflow-x-clip">
       <Navbar />
       <TableOfContents />
       <main className="w-full">
