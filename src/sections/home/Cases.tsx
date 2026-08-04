@@ -53,10 +53,14 @@ function CaseCard({
   illustration: React.ReactNode
 }) {
   const card = (
-    <div className="flex h-[369px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-[var(--black-04)] p-[8px]">
-      <div
-        className={`relative min-h-px flex-1 overflow-hidden rounded-[24px] bg-[var(--white)] ${ready ? 'transition-colors duration-200 group-hover:bg-[var(--black-04)]' : ''}`}
-      >
+    <div
+      className={`flex h-[369px] w-full flex-col overflow-hidden rounded-[var(--radius-lg)] bg-[var(--black-04)] p-[8px] ${
+        ready ? 'transition-colors duration-200 group-hover:bg-[rgba(0,0,0,0.08)]' : ''
+      }`}
+    >
+      {/* Stays white on hover — only the frame around it darkens, so the illustration
+       *  (whose stippling is semi-transparent) never picks up the tint. */}
+      <div className="relative min-h-px flex-1 overflow-hidden rounded-[24px] bg-[var(--white)]">
         {illustration}
 
         <div className="absolute left-[8px] top-[8px] flex size-[40px] items-center justify-center overflow-hidden rounded-[var(--radius-full)] bg-[var(--black-04)]">

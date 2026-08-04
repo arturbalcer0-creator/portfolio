@@ -4,7 +4,7 @@ import { ContactPills } from '../../components/ContactPills'
 const experience = [
   { icon: null, name: 'Фриланс', period: '2020 — 2022г' },
   { icon: asset('/assets/about-rostelecom-logo.svg'), name: 'Ростелеком', period: '2022 — 2024г' },
-  { icon: asset('/assets/cloud-logo.svg'), name: 'Cloud.ru', period: '2024 — н.в.' },
+  { icon: asset('/assets/cloud-logo.svg'), name: 'Cloud.ru', period: '2024 — н.в.', href: 'https://cloud.ru/' },
 ]
 
 const team = [
@@ -61,13 +61,38 @@ function IconBadge({ src }: { src: string }) {
   )
 }
 
-function ExperienceRow({ icon, name, period }: { icon: string | null; name: string; period: string }) {
+function ExperienceRow({
+  icon,
+  name,
+  period,
+  href,
+}: {
+  icon: string | null
+  name: string
+  period: string
+  href?: string
+}) {
+  const inner = (
+    <>
+      {icon && <img src={icon} alt="" className="size-[32px]" />}
+      <p className="t-body flex-1 text-[color:var(--ink)]">{name}</p>
+    </>
+  )
+  const innerClass = `flex flex-1 items-center gap-[4px] ${icon ? '' : 'pl-[36px]'}`
   return (
     <div className="flex items-center gap-[10px] border-b border-solid border-[var(--black-20)] py-[12px] first:border-t">
-      <div className={`flex flex-1 items-center gap-[4px] ${icon ? '' : 'pl-[36px]'}`}>
-        {icon && <img src={icon} alt="" className="size-[32px]" />}
-        <p className="t-body flex-1 text-[color:var(--ink)]">{name}</p>
-      </div>
+      {href ? (
+        <a
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={`${innerClass} transition-opacity hover:opacity-80`}
+        >
+          {inner}
+        </a>
+      ) : (
+        <div className={innerClass}>{inner}</div>
+      )}
       <p className="t-body flex-1 text-right text-[color:var(--ink)]">{period}</p>
     </div>
   )
@@ -121,21 +146,31 @@ export function AboutContent() {
               <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[color:var(--ink)]">
                 в
               </p>
-              <div className="flex items-center gap-[12px]">
+              <a
+                href="https://cloud.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex items-center gap-[12px] transition-opacity hover:opacity-80"
+              >
                 <img src={asset('/assets/cloud-logo.svg')} alt="" className="size-[83px]" />
                 <p className="text-[64px] font-semibold leading-[1.1] tracking-[-0.01em] text-[#21c072]">
                   Cloud.ru
                 </p>
-              </div>
+              </a>
             </div>
 
             {/* Mobile: natural wrap */}
             <p className="text-[32px] font-semibold leading-[1.15] tracking-[-0.01em] text-[color:var(--ink)] lg:hidden">
               Привет! Меня зовут Артур, я продуктовый дизайнер и на данный момент работаю в{' '}
-              <span className="inline-flex items-center gap-[6px]">
+              <a
+                href="https://cloud.ru/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-[6px] align-middle transition-opacity hover:opacity-80"
+              >
                 <img src={asset('/assets/cloud-logo.svg')} alt="" className="inline-block size-[28px]" />
                 <span className="text-[#21c072]">Cloud.ru</span>
-              </span>
+              </a>
             </p>
           </div>
           <ContactPills className="flex flex-row flex-wrap items-start gap-[8px]" />
