@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import { smoothScrollTo } from '../lib/scroll'
+import type { TocSection } from './TableOfContents'
 
 const menuItems = [
   { label: 'Главная', href: '/' },
@@ -23,10 +24,12 @@ function PillButton({
   )
 }
 
-/** Fixed header — centered name (desktop only), menu + back-to-top pills that hide on scroll-down. */
-export function Header() {
+/** Fixed header — centered name (desktop only), menu + back-to-top pills that hide on scroll-down.
+ *  On mobile, the second pill shows the table of contents instead of "В начало" when `sections` is passed. */
+export function Header({ sections }: { sections?: TocSection[] } = {}) {
   const [pillsVisible, setPillsVisible] = useState(true)
   const [menuOpen, setMenuOpen] = useState(false)
+  const [tocOpen, setTocOpen] = useState(false)
 
   useEffect(() => {
     let lastY = window.scrollY
@@ -34,21 +37,30 @@ export function Header() {
       const y = window.scrollY
       const delta = y - lastY
 
-      // The footer is a full-height block now — force the pills back on once the user
-      // has scrolled halfway through it, since hide-on-scroll-down would otherwise strand
-      // them with no way to reach "Меню"/"В начало" deep inside it.
+      // The footer is a full-height block now — force the pills back on as soon as it enters
+      // the viewport, since hide-on-scroll-down would otherwise strand them with no way to
+      // reach "Меню"/"В начало" deep inside it.
       const footer = document.querySelector('footer')
-      const scrolledIntoFooter = footer ? -footer.getBoundingClientRect().top : -Infinity
-      const pastFooterHalfway =
-        !!footer && scrolledIntoFooter > 0 && scrolledIntoFooter / footer.getBoundingClientRect().height >= 0.5
+      const footerInView = !!footer && footer.getBoundingClientRect().top < window.innerHeight
 
-      if (pastFooterHalfway || y < 10 || delta < -4) setPillsVisible(true)
+      if (footerInView || y < 10 || delta < -4) setPillsVisible(true)
       else if (delta > 4) setPillsVisible(false)
       lastY = y
     }
     window.addEventListener('scroll', onScroll, { passive: true })
     return () => window.removeEventListener('scroll', onScroll)
   }, [])
+
+  const goToSection = (id: string) => {
+    const el = document.getElementById(id)
+    if (!el) return
+    smoothScrollTo(el.getBoundingClientRect().top + window.scrollY - 32)
+  }
+
+  const handleSecondaryClick = () => {
+    if (sections && window.innerWidth < 1024) setTocOpen(true)
+    else smoothScrollTo(0)
+  }
 
   return (
     <>
@@ -69,13 +81,20 @@ export function Header() {
       {/* Row is capped at 1268px on desktop so the pills stay a fixed distance apart
        *  instead of drifting to the viewport edges on very wide screens; mobile is untouched. */}
       <header className="pointer-events-none fixed inset-x-0 top-0 z-50 flex justify-center">
-        <div className="flex w-full items-center justify-between px-[32px] pb-[32px] pt-[64px] lg:max-w-[1268px]">
+        <div className="flex w-full items-center justify-between px-[32px] pb-[32px] pt-[32px] lg:pt-[64px] lg:max-w-[1268px]">
           <PillButton visible={pillsVisible} onClick={() => setMenuOpen(true)}>
             Меню
           </PillButton>
 
-          <PillButton visible={pillsVisible} onClick={() => smoothScrollTo(0)}>
-            В начало
+          <PillButton visible={pillsVisible} onClick={handleSecondaryClick}>
+            {sections ? (
+              <>
+                <span className="lg:hidden">Оглавление</span>
+                <span className="hidden lg:inline">В начало</span>
+              </>
+            ) : (
+              'В начало'
+            )}
           </PillButton>
         </div>
       </header>
@@ -85,7 +104,7 @@ export function Header() {
           <div className="mx-auto flex w-full lg:max-w-[1268px]">
             <div
               onClick={(e) => e.stopPropagation()}
-              className="relative ml-[32px] mt-[64px] flex w-[280px] flex-col gap-[20px] rounded-[var(--radius-lg)] bg-[var(--white)] p-[24px] pt-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+              className="relative ml-[32px] mt-[32px] flex w-[280px] flex-col gap-[20px] rounded-[var(--radius-lg)] bg-[var(--white)] p-[24px] pt-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.25)] lg:mt-[64px]"
             >
               <button
                 onClick={() => setMenuOpen(false)}
@@ -104,6 +123,39 @@ export function Header() {
                 >
                   {item.label}
                 </a>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
+
+      {tocOpen && sections && (
+        <div className="fixed inset-0 z-50" onClick={() => setTocOpen(false)}>
+          <div className="mx-auto flex w-full justify-end lg:max-w-[1268px]">
+            <div
+              onClick={(e) => e.stopPropagation()}
+              className="relative mr-[32px] mt-[32px] flex w-[240px] flex-col gap-[16px] rounded-[var(--radius-lg)] bg-[var(--white)] p-[24px] pt-[28px] shadow-[0_20px_60px_rgba(0,0,0,0.25)]"
+            >
+              <button
+                onClick={() => setTocOpen(false)}
+                aria-label="Закрыть оглавление"
+                className="absolute right-[16px] top-[16px] flex size-[32px] items-center justify-center rounded-full bg-[var(--black-04)] text-[color:var(--black-50)]"
+              >
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
+                  <path d="M1 1L13 13M13 1L1 13" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                </svg>
+              </button>
+              {sections.map((s) => (
+                <button
+                  key={s.id}
+                  onClick={() => {
+                    goToSection(s.id)
+                    setTocOpen(false)
+                  }}
+                  className="t-body-tight text-left text-[color:var(--black-50)] transition-colors hover:text-[color:var(--ink)]"
+                >
+                  {s.label}
+                </button>
               ))}
             </div>
           </div>

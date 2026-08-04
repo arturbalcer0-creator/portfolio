@@ -1,7 +1,7 @@
 import { asset } from '../lib/asset'
 const contacts = [
-  { label: 'Telegram', href: '#' },
-  { label: 'Почта', href: '#' },
+  { label: 'Telegram', href: 'https://t.me/artur_balcer' },
+  { label: 'Почта', href: 'mailto:arturbalcer0@gmail.com' },
 ]
 
 /** Hero-block illustration for each active case, reused in its footer card. */
@@ -59,6 +59,7 @@ export function Footer({
               <a
                 key={c.label}
                 href={c.href}
+                {...(c.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="t-body-tight tracking-[-0.03em] text-[color:var(--green-400)] transition-opacity hover:opacity-80"
               >
                 {c.label}

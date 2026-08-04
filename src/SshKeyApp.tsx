@@ -43,7 +43,7 @@ export function SshKeyApp() {
 
   return (
     <div className="relative w-full overflow-x-clip bg-[var(--white)]">
-      <Header />
+      <Header sections={sections} />
       <TableOfContents sections={sections} />
       <main className="w-full">
         <SshHero />
