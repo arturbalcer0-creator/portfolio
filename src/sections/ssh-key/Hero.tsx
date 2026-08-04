@@ -7,12 +7,17 @@ function Meta({ size }: { size: 'lg' | 'sm' }) {
   const text = size === 'lg' ? 'text-[20px]' : 'text-[16px]'
   return (
     <div className="flex w-full flex-wrap items-center justify-center gap-[8px]">
-      <div className="flex items-center gap-[4px]">
+      <a
+        href="https://cloud.ru/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="flex items-center gap-[4px] transition-opacity hover:opacity-80"
+      >
         <img src={asset('/assets/cloud-logo.svg')} alt="Cloud.ru" className="size-[24px]" />
         <span className={`${text} whitespace-nowrap font-medium text-[color:var(--green-400)]`}>
           Cloud.ru
         </span>
-      </div>
+      </a>
       <Dot />
       <span className={`${text} whitespace-nowrap font-medium text-[color:var(--white-50)]`}>
         Виртуальные машины (IaaS)
