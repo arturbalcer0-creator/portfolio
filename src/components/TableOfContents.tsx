@@ -3,7 +3,7 @@ import { smoothScrollTo } from '../lib/scroll'
 
 export type TocSection = { id: string; label: string; dark: boolean }
 
-const defaultSections: TocSection[] = [
+export const defaultSections: TocSection[] = [
   { id: 'hero', label: 'Вычислительные ресурсы', dark: true },
   { id: 'context', label: 'Контекст', dark: false },
   { id: 'problems', label: 'Проблемы', dark: true },

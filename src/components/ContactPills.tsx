@@ -20,11 +20,11 @@ function GmailIcon() {
 export function ContactPills({ className }: { className?: string }) {
   return (
     <div className={className}>
-      <a href="#" className={pillClass}>
+      <a href="https://t.me/artur_balcer" target="_blank" rel="noopener noreferrer" className={pillClass}>
         <img src={asset('/assets/contact-telegram.svg')} alt="" className="size-[24px] shrink-0" />
         <span className="text-[12px] font-medium text-black">telegram</span>
       </a>
-      <a href="#" className={pillClass}>
+      <a href="mailto:arturbalcer0@gmail.com" className={pillClass}>
         <GmailIcon />
         <span className="text-[12px] font-medium text-black">почта</span>
       </a>

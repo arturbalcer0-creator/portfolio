@@ -11,7 +11,7 @@ import { Research } from './sections/Research'
 import { Insights } from './sections/Insights'
 import { Outcome } from './sections/Outcome'
 import { Footer } from './sections/Footer'
-import { TableOfContents } from './components/TableOfContents'
+import { TableOfContents, defaultSections } from './components/TableOfContents'
 
 export default function App() {
   // Kill hanging prepositions site-wide: once the (static) content is mounted,
@@ -38,7 +38,7 @@ export default function App() {
 
   return (
     <div className="relative w-full overflow-x-clip bg-[var(--white)]">
-      <Header />
+      <Header sections={defaultSections} />
       <TableOfContents />
       <main className="w-full">
         <Hero />

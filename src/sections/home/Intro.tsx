@@ -24,7 +24,7 @@ export function HomeIntro() {
           я подробнее рассказал о себе
         </p>
       </div>
-      <ContactPills className="flex flex-row flex-wrap items-start gap-[8px] lg:flex-col" />
+      <ContactPills className="flex flex-row flex-wrap items-start gap-[8px] self-end lg:flex-col" />
     </div>
   )
 }
