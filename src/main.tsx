@@ -1,10 +1,13 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
+import { inject } from '@vercel/analytics'
 import App from './App'
 import { SshKeyApp } from './SshKeyApp'
 import { AboutApp } from './AboutApp'
 import { HomeApp } from './HomeApp'
 import './index.css'
+
+inject()
 
 // One SPA, four routes — picked by pathname since there's no router.
 const path = window.location.pathname
